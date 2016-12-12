@@ -1,0 +1,1 @@
+ADD_EXECUTABLE(PlotN PlotN.cpp)

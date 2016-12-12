@@ -1,0 +1,48 @@
+\documentclass[a4paper]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{left=1cm,right=1cm,top=1cm,bottom=1cm}
+
+\title{Weta Hair Scatterng Models Compediumn}
+
+\begin{document}
+\maketitle
+
+\section{Energy-Conversing Model}
+
+\subsection{Longitudinal Scattering Function}
+\begin{eqnarray}
+	M_p(v, \theta_i, \theta_r) = \frac{\text{csch}(1/v)}{2v}e^{\frac{\sin(-\theta_i)\sin(\theta_r)}{v}}  I_0 \big[ \frac{\cos(-\theta_i) \cos \theta_r}{v} \big]
+\end{eqnarray}
+
+\subsection{Azimuthal Scattering Function}
+\begin{eqnarray}
+	N_p(\phi, h) & = & \frac{1}{2} \int_{-1}^1 A(p,h) D_p(\phi - \Phi(p,h)) dh \\
+	A_0(0, h) & = & F(\eta , \frac{1}{2} \arccos(\omega_i \cdot \omega_r)) \\
+	A_p(p, h) & = & (1 - f)^2 f^{p - 1} T(\mu_a', h)^p \\
+	f & = & F(\eta , \arccos(\cos(\theta_d) \cos(\arcsin(h))) \\
+	T(\mu_a, h) & = & \exp(- 2 \mu_a(1 + \cos(2 \gamma_t) ) ) \\
+	\mu_a' & = & = \mu_a / \cos(\theta_t) \\
+	D_p(\phi) & = & \sum_{k = - \infty}^\infty g(\beta_p;\phi - 2 \pi k) \\
+	\Phi(p, h) & = & = 2 p \gamma_t - 2 \gamma_i + p \pi \\
+	\gamma_i & = & \arcsin(h) \\
+	\gamma_t & = & \arcsin(\frac{h}{\eta'}) \\
+	\eta' & = & \frac{\sqrt{\eta^2 - \sin^2 \theta_d}}{\cos \theta_d}
+\end{eqnarray}
+
+\subsection{Combination}
+There is only direct contribution from visible lights, no indirect, no projection $ \frac{1}{\cos^2 \theta_d}$
+$$ S = \sum_{p=0}^{\infty} M_p(v, \theta_i, \theta_r) N_p(\phi) $$
+
+\section{Energy-Conversing Model with Importance Sampling}
+
+\subsection{Longitudinal Scattering Function}
+\begin{eqnarray}
+	M_p(v, \theta_c, \theta_o) & = & \frac{\text{csch}(1/v)}{2v}e^{\frac{\sin \theta_c)\sin(\theta_r)}{v}}  I_0 \big[ \frac{\cos \theta_c) \cos \theta_o}{v} \big] \frac{1}{\cos \theta_o} \\
+	\theta_o(\xi_1, \xi_2, v, \theta_c) & = & \arcsin( u(\xi_1)\cos \theta' + \sqrt{1 - u(\xi_1)^2} \cos(2\pi \xi_2) \sin \theta' ) \\
+	u(\xi_1) & = & v \log(e^{1/v} - 2 \xi_1 \sinh \frac{1}{v}) \\
+	\theta' & = & \frac{\pi}{2} - \theta_c
+\end{eqnarray}
+
+\end{document}
